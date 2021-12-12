@@ -1,62 +1,45 @@
 import Head from 'next/head';
-import data from "../../data/data.js";
+import { orders, revenueThisWeek } from "../../data/data.js";
 
 export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Metric Dash 2.0</title>
       </Head>
 
-      <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <main> 
+        <div id="header">
+          <h1 id="title">
+            GETTER SALES
+          </h1>
+          <h1 id="date">
+            TODO: Add date here!
+          </h1>
+        </div>
+        <div id="data-cards">
+          <div id="card1">
+            <p>This is empty...</p>
+          </div>
+          <div id="card2">
+            <p>This is also empty...</p>
+          </div>
+          <div id="card3">
+            <p>Guess what! Also empty...</p>
+          </div>
+          <div id="chart1">
+            <p>Watch this space for impressive stats!</p>
+          </div>
         </div>
       </main>
 
       <footer>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://github.com/jrostirolla"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className="logo" />
+          Created by James Rostirolla!
         </a>
       </footer>
 

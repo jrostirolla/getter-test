@@ -1,5 +1,58 @@
 import Head from 'next/head';
+import moment from "moment";
+import Chart from 'chart.js';
+
 import { orders, revenueThisWeek } from "../../data/data.js";
+
+const styles = {
+  cardSet: {
+    display: 'flex',
+    margin: '100px'
+  },
+  card: {
+    border: 'solid 2px black',
+    width: '300px',
+    height: '300px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    margin: '100px',
+    background: 'lightsalmon'
+  },
+  orders: {
+    fontSize: '60px'
+  },
+  header: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    margin: '15px',
+    color: 'white'
+  },
+  date: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    margin: '15px',
+    color: 'white'
+  }
+}
+
+function NSWOrders() {
+  let NSW = orders[0].nsw
+  return NSW;
+}
+
+function QLDOrders() {
+  let QLD = orders[0].qld
+  return QLD;
+}
+
+function VICOrders() {
+  let VIC = orders[0].vic
+  return VIC;
+}
 
 export default function Home() {
   return (
@@ -8,37 +61,70 @@ export default function Home() {
         <title>Metric Dash 2.0</title>
       </Head>
 
-      <main> 
+      <main style={{ 
+        margin: 0, 
+        padding: 0,
+        background: 'darkblue',
+        width: '100%' }}> 
         <div id="header">
-          <h1 id="title">
+          <h1 id="title" style={styles.header}>
             GETTER SALES
           </h1>
-          <h1 id="date">
-            TODO: Add date here!
+          <h1 id="date" style={styles.date}>
+            <moment interval={10000} format="DD MMM YY HH:mm">
+              {moment().format("LLLL")}
+            </moment>
           </h1>
         </div>
-        <div id="data-cards">
-          <div id="card1">
-            <p>This is empty...</p>
+        <div id="data-cards" style={styles.cardSet}>
+          <div id="card1" style={styles.card}>
+            <h2>Todays orders</h2>
+              <div style={styles.orders}>{NSWOrders()}</div>
+            <h2>NSW</h2>
           </div>
-          <div id="card2">
-            <p>This is also empty...</p>
+          <div id="card2" style={styles.card}>
+            <h2>Todays orders</h2>
+            <div style={styles.orders}>{QLDOrders()}</div>
+            <h2>QLD</h2>
           </div>
-          <div id="card3">
-            <p>Guess what! Also empty...</p>
+          <div id="card3" style={styles.card}>
+            <h2>Todays orders</h2>
+            <div style={styles.orders}>{VICOrders()}</div>
+            <h2>VIC</h2>
           </div>
-          <div id="chart1">
-            <p>Watch this space for impressive stats!</p>
+          <div id="charting">
+            <div id='chart'>{() => {
+              ;
+              const ctx = document.getElementById('chart');
+              const chart = new Chart(ctx, {
+                type: line,
+                data: { revenueThisWeek },
+                options: {
+                  scales: {
+                    y: {
+                      beginAtZero: true,
+                    }
+                  }
+                }
+              });
+              
+              //TODO: FIX ME!
+
+              return chart;
+        }}
+        </div>
+          <p style={{
+            color: 'white', 
+            position: 'absolute', 
+            bottom: '300px',
+            left: '45%' 
+          }}>Check this space for upcoming data!</p>
           </div>
         </div>
       </main>
 
-      <footer>
-        <a
-          href="https://github.com/jrostirolla"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+      <footer style={{ color: 'white', background: 'darkblue' }}>
+        <a href="https://github.com/jrostirolla">
           Created by James Rostirolla!
         </a>
       </footer>

@@ -32,9 +32,6 @@ A utility first class based css framework.
 > **Chart.js** [https://www.chartjs.org/]
 Simple yet flexible JavaScript charting for designers & developers
 
-> **Next.js** [https://nextjs.org/]
-Next.js is an open-source development framework built on top of Node.js enabling React based web applications functionalities such as server-side rendering and generating static websites.
-
 > **Ava** [https://github.com/avajs/ava]
 AVA is a test runner for Node.js with a concise API, detailed error output, embrace of new language features and process isolation that lets you develop with confidence
 
